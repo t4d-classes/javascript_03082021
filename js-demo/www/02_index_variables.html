@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  // assigning to a variable which has not be declared
+  // makes it global
+  // t = 2; // in strict mode this will never work
+
+  // declare a mutable variable
+  // let t = 2;
+
+  // declare an immutable variable
+  const t = {
+      firstName: 'Bob',
+      lastName: 'Smith',
+  };
+
+  t.firstName = 'Tim';
+
+  console.log(t);
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  //   function doIt(a, b = "test", c = [], d = true) {
+  //     console.log(a, b, c, d);
+  //   }
+
+  //   doIt(1, 2);
+
+  // '...' rest operator
+  function doIt2(a, b, ...c) {
+    console.log(a, b, c);
+  }
+
+  // doIt2(1, 2, 3, 4, 5, 6);
+
+  // '...' spread operator
+  const d = [1, 2, 3, 4, 5];
+  doIt2(...[1, 2, 3, 4, 5, 6], ...d);
+
+  console.log(Math.max(...d));
+</script>

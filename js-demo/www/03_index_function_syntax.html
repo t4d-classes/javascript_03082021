@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  // function declaration
+  function doIt() {
+    console.log("do it");
+  }
+
+  doIt();
+  console.dir(doIt);
+
+  // function expression
+  const doIt2 = function () {
+    console.log("do it 2");
+  };
+
+  doIt2();
+  console.dir(doIt2);
+
+  // arrow function
+  const doIt3 = () => {
+    console.log("do it 3");
+  };
+
+  doIt3();
+  console.dir(doIt3);
+</script>

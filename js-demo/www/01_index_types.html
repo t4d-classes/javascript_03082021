@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<script>
+  // var, let, and const
+
+  let t;
+
+  // primitive types
+
+  // undefined - variable has
+  // been declared, but no value assigned to it
+  console.log(t);
+  console.log(typeof t); // undefined
+
+  t = "hello";
+  console.log(t);
+  console.log(typeof t); // string
+
+  t = 2;
+  console.log(t);
+  console.log(typeof t); // number
+
+  t = true; // false
+  console.log(t);
+  console.log(typeof t); // boolean
+
+  t = Symbol("some desc");
+  console.log(t);
+  console.log(typeof t); // symbol ES2015
+
+  t = BigInt(200000000000000000);
+  console.log(t);
+  console.log(typeof t); // bigint ES2020
+
+  // is really a primitive, but claims to be an object
+
+  t = null;
+  console.log(t);
+  console.log(typeof t); // object BUG (should be null)
+
+  // object types
+
+  // syntax: object literal
+  t = {
+    // key - value pairs
+    firstName: "Bob",
+    lastName: "Smith",
+  };
+  console.log(t);
+  console.log(typeof t); // object
+  console.log(t instanceof Object);
+
+  // syntax: array literal
+  t = [1, 2, 3, 4, 5];
+  console.log(t);
+  console.log(typeof t); // object
+  console.log(t instanceof Array);
+
+  t = new Date();
+  console.log(t);
+  console.log(typeof t); // object
+  console.log(t instanceof Date);
+
+  t = function doIt() {
+    console.log("did it");
+  };
+  console.dir(t);
+  console.log(typeof t); // function
+  console.log(t instanceof Object);
+</script>

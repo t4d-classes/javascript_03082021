@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  let t = true;
+  console.log(t);
+
+  t = false;
+  console.log(t);
+
+  // falsy
+  // zero length string ""
+  // 0
+  // false
+  // null
+  // undefined
+  // NaN
+
+  let x = "";
+
+  if (x || 2) {
+    console.log("x is truthy");
+  } else {
+    console.log("x is falsy");
+  }
+
+  console.log("a" || 2);
+</script>
