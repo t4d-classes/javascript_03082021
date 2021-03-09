@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  //   const colors = ["green", "blue", "gray", "orange", "black"];
+
+  //   console.log(colors[2]);
+  //   console.log(colors.length);
+
+  //   // append color to the array
+  //   colors.push("red"); // return value is the new length of the array
+
+  //   //prepends a color to the array
+  //   colors.unshift("pink"); // return value is the new length of the array
+
+  //   // remove and return the last color
+  //   console.log(colors.pop());
+
+  //   // remove first color from the array
+  //   console.log(colors.shift());
+
+  //   colors.sort();
+
+  //   colors.reverse();
+
+  //   console.log(colors.indexOf("green"));
+
+  //   console.log(colors);
+
+  //   const stuff = [1, "test", false, { id: 1 }, function () {}, [], new Date()];
+
+  //   console.log(stuff);
+
+  //   console.log(stuff["1"]);
+
+  //   stuff[132423123] = "this is a crazy!";
+
+  //   console.log(stuff);
+
+  function getEmployee() {
+    // run some logic
+
+    // return {
+    //     id: 1,
+    //     accessLevel: 32,
+    //     lastName: 'Smith',
+    // };
+
+    return [1, 32, "Smith"];
+  }
+
+  // const employeeInfo = getEmployee();
+  const [empId, securityAccessLevel, eName] = getEmployee();
+
+  const [data, setData] = useState(someData);
+  const [data2, setData2] = useState(someData2);
+
+  data;
+  setData(newInfo);
+</script>

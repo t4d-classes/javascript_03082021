@@ -4,27 +4,23 @@
   // using strict mode is a best practice
   "use strict"; // ES5 - 2011
 
-  let t = true;
-  console.log(t);
+  const nums = [1, 2, 3, 4, 5];
 
-  t = false;
-  console.log(t);
+  // appending and prepending immutably
+  // const newNums = nums.concat(9);
+  // const newNums = [...nums, 9];
+  const newNums = [9, ...nums];
 
-  // falsy
-  // zero length string ""
-  // 0
-  // false
-  // null
-  // undefined
-  // NaN
+  // removing an item
+  const newNums2 = newNums.filter((x) => x !== 9);
 
-  let x = "";
+  // replacing an item
+  const numIndex = newNums2.findIndex((x) => x === 3);
+  const newNums3 = [...newNums2];
+  newNums3[numIndex] = 7;
 
-  if (x || 2) {
-    console.log("x is truthy");
-  } else {
-    console.log("x is falsy");
-  }
-
-  console.log("a" || 2);
+  console.log(nums);
+  console.log(newNums);
+  console.log(newNums2);
+  console.log(newNums3);
 </script>

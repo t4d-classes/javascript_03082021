@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  //   function displayFullName(person) {
+  //     console.log(person.firstName + " " + person.lastName);
+  //   }
+
+  //   displayFullName({
+  //     firstName: "Bob",
+  //     lastName: "Smith",
+  //   });
+
+  //   const person = {
+  //     firstName: "Bob",
+  //     lastName: "Smith",
+  //     age: 32,
+  //     address: {
+  //         street: '123 Oak Lane',
+  //         city: 'Mountain View'
+  //     },
+  //     isNicePerson: true,
+  //     fullName: function () {
+  //       return this.lastName + ", " + this.firstName;
+  //     },
+  //     favColors: ["red", "green"],
+  //   };
+
+  //   person2 = {
+  //       address: person.address,
+  //   }
+
+  //   console.log(person);
+
+  //   person.age = 32;
+  //   console.log(person);
+  //   delete person.lastName;
+  //   console.log(person);
+
+  const firstName = "Bob";
+
+  const propName = "age";
+
+  const person = {
+    // shorthand property
+    // firstName: firstName,
+    firstName,
+    lastName: "Smith",
+    // shorthand function property
+    // fullName: function() {
+    fullName() {
+      return this.firstName + " " + this.lastName;
+    },
+    // computed property
+    // age: 32
+    [propName]: 32,
+  };
+
+  console.log(person);
+</script>

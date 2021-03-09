@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  const nums = [1, 2, 3, 4, 5];
+
+  // imperative approach
+  //   const doubleNums = [];
+
+  //   for (let x = 0; x < nums.length; x++) {
+  //     doubleNums.push(nums[x] * 2);
+  //   }
+
+  function myMap(list, transformFn) {
+    const newList = [];
+    for (let x = 0; x < list.length; x++) {
+      newList.push(transformFn(list[x]));
+    }
+    return newList;
+  }
+
+  // declarative approach
+  const doubleNums = nums.map((x) => x * 2);
+  // const doubleNums = myMap(nums, (x) => x * 2);
+  // produce the following array
+  // [2,4,6,8,10]
+  console.log(doubleNums);
+
+  const evenNums = nums.filter((x) => x % 2 === 0);
+  console.log(evenNums);
+  console.log(nums);
+</script>
