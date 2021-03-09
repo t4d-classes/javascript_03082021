@@ -4,48 +4,22 @@
   // using strict mode is a best practice
   "use strict"; // ES5 - 2011
 
-  // setTimeout(function doIt() {
-  //   console.log("a");
-  // }, 0);
+  const xhr = new XMLHttpRequest();
 
-  // console.log("b");
+  xhr.addEventListener("readystatechange", () => {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      console.log(JSON.parse(xhr.responseText));
+    }
+  });
 
-  const delay = () => Math.floor(Math.random() * 1000) + 500;
-
-  // setTimeout(function () {
-  //     console.log("a");
-  //     setTimeout(function () {
-  //         console.log("b");
-  //         setTimeout(function () {
-  //             console.log("c");
-  //         }, delay());
-  //     }, delay());
-  // }, delay());
-
-  function allDone() {
-    console.log("all done");
-  }
-
-  setTimeout(() => {
-    console.log("a");
-  }, delay());
-
-  setTimeout(() => {
-    console.log("b");
-  }, delay());
-
-  setTimeout(() => {
-    console.log("c");
-  }, delay());
+  xhr.open("GET", "http://localhost:5050/cars");
+  xhr.send();
 
   // Lab Exercise
-  // Run the all done function, after all three setTimeouts have executed.
-  // Rules:
-  // 1. All three calls to setTimeout must occur in the same task
-  // 2. The delay values must all be random
-  // 3. Promises may not be used.
 
-  
+  // Implement the myFetch function so that it works according to the following example:
+  // Do not use the actual fetch API in your code, use the XHR code above to make
+  // the REST API call
 
-
+  myFetch("http://localhost:5050/cars").then((cars) => console.log(cars));
 </script>

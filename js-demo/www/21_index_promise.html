@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  class Promise {
+    constructor(fn) {
+      this._resolveFns = [];
+      this._rejectFns = [];
+      this._status = "UNFULFILLED";
+      this._result = null;
+
+      const resolveFn = (result) => {
+        this._resolveFns.forEach((fn) => fn(result));
+        this._result = result;
+        this._status = "RESOLVED";
+      };
+
+      const rejectFn = (result) => {
+        this._rejectFns.forEach((fn) => fn(result));
+        this._result = result;
+        this._status = "REJECTED";
+      };
+
+      fn(resolveFn, rejectFn);
+    }
+
+    then(fn) {
+      if (this._status === "RESOLVED") {
+        fn(this._result);
+      } else {
+        this._resolveFns.push(fn);
+      }
+    }
+
+    catch(fn) {
+      this._rejectFns.push(fn);
+    }
+  }
+
+  console.log("creating promise");
+  const p = new Promise((resolve, reject) => {
+    console.log("calling setTimeout");
+    setTimeout(() => {
+      console.log("calling resolve");
+      resolve("a");
+    }, 2000);
+  });
+
+  console.log("calling then");
+  p.then((result) => {
+    console.log("writing result to the console");
+    console.log(result);
+  }).catch((result) => {
+    console.log("something went wrong: ", result);
+  });
+
+  setTimeout(() => {
+    p.then((result) => {
+      console.log(result);
+      console.log("I still ran.");
+    });
+  }, 4000);
+
+  console.log("waiting...");
+</script>
