@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  function appendCar(cars, car) {
+    return [
+      ...cars,
+      {
+        id: Math.max(...cars.map((c) => c.id), 0) + 1,
+        // make: car.make,
+        // model: car.model,
+        // year: car.year,
+        // price: car.price,
+        ...car, // shortcut to copy all properties
+      },
+    ];
+  }
+
+  function replaceCar(cars, car) {
+    const newCars = [...cars];
+    const carIndex = cars.findIndex((c) => c.id === car.id);
+    newCars[carIndex] = car;
+    return newCars;
+  }
+
+  function removeCar(cars, carId) {
+    return cars.filter((c) => c.id !== carId);
+  }
+
+  let cars = [];
+
+  cars = appendCar(cars, { make: "Ford", model: "T", year: 1920, price: 400 });
+  cars = appendCar(cars, { make: "Ford", model: "T", year: 1922, price: 500 });
+
+  cars = replaceCar(cars, {
+    id: 1,
+    make: "Tesla",
+    model: "S",
+    year: 2020,
+    price: 120000,
+  });
+
+  cars = removeCar(cars, 2);
+
+  // cars.forEach((c) => console.log(c));
+  for (let car of cars) {
+    console.log(car);
+  }
+</script>

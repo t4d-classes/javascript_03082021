@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  const parent = {
+    name: "parent",
+    amt: 2,
+    info: { id: 1 },
+  };
+
+  const child = Object.create(parent);
+  child.name = "child";
+
+  console.log(child.amt);
+
+  parent.amt = 5;
+
+  console.log(child.amt);
+
+  console.dir(child);
+
+  const child2 = Object.create(parent);
+  child2.name = "child2";
+
+  console.log(child.info === child2.info);
+</script>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  function doIt() {
+    const msg = "test";
+    console.log("do it");
+    const y = msg.toUpperCase();
+    console.log(y);
+  }
+
+  function thisIsCool() {
+    doIt();
+  }
+
+  // host
+  setTimeout(thisIsCool, 2000);
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  class Person {
+    constructor(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+
+    fullName() {
+      return this.firstName + " " + this.lastName;
+    }
+  }
+
+  class Student extends Person {
+    constructor(studentId, firstName, lastName) {
+      super(firstName, lastName);
+      this.studentId = studentId;
+    }
+
+    recordInfo() {
+      return this.studentId + " " + this.lastName + ", " + this.firstName;
+    }
+  }
+
+  const student = new Student(1, "Bob", "Smith");
+  console.log(student.fullName());
+  console.log(student.recordInfo());
+</script>

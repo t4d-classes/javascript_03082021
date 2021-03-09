@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  const person = {
+    firstName: "Bob",
+    lastName: "Smith",
+    age: 23,
+    hairColor: "brown",
+    address: {
+      street: '123 Oak Lane',
+      city: 'Mountain View',
+    }
+  };
+
+  const person2 = {
+    ...person,
+    // firstName: "Bob",
+    // lastName: "Smith",
+    // age: 23,
+    // hairColor: "brown",
+  };
+
+  const lastName = 'SOME LASTNAME';
+
+  // object destructuring
+  // const firstName = person.firstName;
+  const { firstName, lastName: ln, address: { street, city }, ...otherProps } = person;
+
+  console.log(firstName); // Bob
+  console.log(ln); // Smith
+  console.log(otherProps); // { age: 23, hairColor: 'brown'}
+
+  const nums = [1, 2, 3, 4, 5];
+
+  // array destructuring
+  const [a, b, ...otherNums] = nums;
+  console.log(a); // 1
+  console.log(b); // 2
+  console.log(otherNums); // [3,4,5]
+
+  // function displayFullName(person) {
+  //   console.log(person.firstName + ' ' + person.lastName);
+  // }
+  function displayFullName({ firstName, lastName }) {
+    console.log(firstName + " " + lastName);
+  }
+  displayFullName(person);
+</script>

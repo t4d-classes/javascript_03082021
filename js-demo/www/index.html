@@ -4,48 +4,48 @@
   // using strict mode is a best practice
   "use strict"; // ES5 - 2011
 
-  function appendCar(cars, car) {
-    return [
-      ...cars,
-      {
-        id: Math.max(...cars.map((c) => c.id), 0) + 1,
-        // make: car.make,
-        // model: car.model,
-        // year: car.year,
-        // price: car.price,
-        ...car, // shortcut to copy all properties
-      },
-    ];
+  // setTimeout(function doIt() {
+  //   console.log("a");
+  // }, 0);
+
+  // console.log("b");
+
+  const delay = () => Math.floor(Math.random() * 1000) + 500;
+
+  // setTimeout(function () {
+  //     console.log("a");
+  //     setTimeout(function () {
+  //         console.log("b");
+  //         setTimeout(function () {
+  //             console.log("c");
+  //         }, delay());
+  //     }, delay());
+  // }, delay());
+
+  function allDone() {
+    console.log("all done");
   }
 
-  function replaceCar(cars, car) {
-    const newCars = [...cars];
-    const carIndex = cars.findIndex((c) => c.id === car.id);
-    newCars[carIndex] = car;
-    return newCars;
-  }
+  setTimeout(() => {
+    console.log("a");
+  }, delay());
 
-  function removeCar(cars, carId) {
-    return cars.filter((c) => c.id !== carId);
-  }
+  setTimeout(() => {
+    console.log("b");
+  }, delay());
 
-  let cars = [];
+  setTimeout(() => {
+    console.log("c");
+  }, delay());
 
-  cars = appendCar(cars, { make: "Ford", model: "T", year: 1920, price: 400 });
-  cars = appendCar(cars, { make: "Ford", model: "T", year: 1922, price: 500 });
+  // Lab Exercise
+  // Run the all done function, after all three setTimeouts have executed.
+  // Rules:
+  // 1. All three calls to setTimeout must occur in the same task
+  // 2. The delay values must all be random
+  // 3. Promises may not be used.
 
-  cars = replaceCar(cars, {
-    id: 1,
-    make: "Tesla",
-    model: "S",
-    year: 2020,
-    price: 120000,
-  });
+  
 
-  cars = removeCar(cars, 2);
 
-  // cars.forEach((c) => console.log(c));
-  for (let car of cars) {
-    console.log(car);
-  }
 </script>
