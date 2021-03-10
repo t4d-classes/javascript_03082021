@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  function Person2(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  Person2.prototype.getFullName = function () {
+    return this.firstName + " " + this.lastName;
+  };
+
+  function Student2(studentId, firstName, lastName) {
+    this._super(firstName, lastName);
+    this.studentId = studentId;
+  }
+
+  Student2.prototype = Object.create(Person2.prototype);
+  Student2.prototype.constructor = Student2;
+  Student2.prototype._super = Person2;
+
+  Student2.prototype.getRecordInfo = function () {
+    return this.studentId + " " + this.lastName + ", " + this.firstName;
+  };
+
+  const s2 = new Student2(1, "Bob", "Smith");
+  console.log(s2.getFullName());
+  console.log(s2.getRecordInfo());
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  const delay = () => Math.floor(Math.random() * 1000) + 500;
+
+  const p1 = new Promise((resolve) => setTimeout(() => resolve("a"), delay()));
+  const p2 = new Promise((resolve) => setTimeout(() => resolve("b"), delay()));
+  const p3 = new Promise((resolve) => setTimeout(() => resolve("c"), delay()));
+  const p4 = new Promise((resolve) => setTimeout(() => resolve("d"), delay()));
+
+  p1.then((result) => console.log(result));
+  p2.then((result) => console.log(result));
+  p3.then((result) => console.log(result));
+  p4.then((result) => console.log(result));
+
+  Promise.all([p1, p2, p3, p4]).then((results) => {
+    console.log(results);
+    console.log("all done");
+  });
+</script>

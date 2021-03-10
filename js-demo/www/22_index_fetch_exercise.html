@@ -4,22 +4,27 @@
   // using strict mode is a best practice
   "use strict"; // ES5 - 2011
 
-  const xhr = new XMLHttpRequest();
+  function myFetch(url) {
+    return new Promise((resolve) => {
+      const xhr = new XMLHttpRequest();
 
-  xhr.addEventListener("readystatechange", () => {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      console.log(JSON.parse(xhr.responseText));
-    }
-  });
+      xhr.addEventListener("readystatechange", () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          resolve(JSON.parse(xhr.responseText));
+        }
+      });
 
-  xhr.open("GET", "http://localhost:5050/cars");
-  xhr.send();
+      xhr.open("GET", url);
+      xhr.send();
+    });
+  }
 
   // Lab Exercise
 
   // Implement the myFetch function so that it works according to the following example:
   // Do not use the actual fetch API in your code, use the XHR code above to make
   // the REST API call
+  // do not worry about errors...
 
   myFetch("http://localhost:5050/cars").then((cars) => console.log(cars));
 </script>

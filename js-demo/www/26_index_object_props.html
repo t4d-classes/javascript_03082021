@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<script>
+  // using strict mode is a best practice
+  "use strict"; // ES5 - 2011
+
+  const person = {
+    firstName: "Bob",
+    lastName: "Smith",
+    address: {
+      street: "124 Oak Lane",
+    },
+    // address: null,
+  };
+
+  // if (person.address) {
+  //   console.log(person.address.street);
+  // }
+
+  // optional chaining
+  console.log(person?.address?.street);
+
+  // nullish coalescing operator
+  const doIt = (p) => {
+    const t = p ?? "some default value";
+
+    console.log(t);
+  };
+
+  doIt(0);
+
+  let cars = [
+    { id: 1, make: "Ford", model: "T", year: 1920, price: 400 },
+    { id: 2, make: "Ford", model: "T", year: 1922, price: 500 },
+  ];
+
+  for (let car of cars) {
+    console.log(car);
+  }
+
+  // const nums = [1,2,3,4,5]
+
+  function* nums() {
+    // console.log("in nums");
+    // yield 1;
+    // console.log("in nums");
+    // yield 2;
+    // console.log("in nums");
+    // yield 3;
+
+    let counter = 0;
+
+    while (true) {
+      console.log("in nums");
+      yield counter++;
+    }
+  }
+
+  for (let num of nums()) {
+    console.log("in loop");
+    console.log(num);
+    if (num > 6) {
+      break;
+    }
+  }
+
+  // const car = cars[0];
+
+  // const parent = {
+  //   name: "parent",
+  //   amt: 10,
+  // };
+
+  // const child = Object.create(parent);
+  // child.name = "child";
+
+  // console.log(child.hasOwnProperty("amt"));
+  // console.log("amt" in child);
+
+  // for (let prop in child) {
+  //   console.log(prop);
+  // }
+
+  //console.log("make" in car);
+
+  // for (let carIndex in cars) {
+  //   console.log(cars[carIndex]);
+  // }
+</script>
